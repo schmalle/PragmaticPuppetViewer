@@ -1,0 +1,16 @@
+PragmaticPuppetViewer
+=====================
+
+Report viewer for Puppet (2.7 ++)
+
+Uses
+
+Hibernate
+Bootstrap from Twittter
+Play Framework
+goip Framework from Maxmind
+
+
+Require <Pragmatic Puppet Reporter>
+
+

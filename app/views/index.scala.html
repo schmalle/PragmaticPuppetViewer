@@ -1,0 +1,14 @@
+@(message: String, nodes: Array[Node])
+
+@main("Welcome to Pragmatic Puppet Viewer") {
+    
+@message
+
+<ul>
+    @for(node <- nodes) {
+    <li>@node.getName()</li>
+    }
+</ul>
+
+    
+}
