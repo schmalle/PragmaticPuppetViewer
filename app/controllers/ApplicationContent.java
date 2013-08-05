@@ -9,24 +9,22 @@ import java.io.File;
 public class ApplicationContent extends Controller
 {
 
+    /**
+     * handles POST request from the reporting
+     * @param nodeName
+     * @return
+     */
     public static Result index(String nodeName)
     {
 
         Http.RequestBody body = request().body();
         Http.RawBuffer textBodyRaw = body.asRaw();
         File newFile = textBodyRaw.asFile();
-
-        System.out.println("Found request from IP " + request().remoteAddress());
-        System.out.println("Found request with node " + nodeName);
-        System.out.println("Filename " + newFile.getAbsolutePath());
-
-
         org.metams.ppr.ReportHandler x = new ReportHandler(null, null);
         x.getData(null, newFile.getAbsolutePath(), request().remoteAddress());
 
-        // newFile.delete();
-
-        //   return ok(index.render("Your new application is ready.", nodes));
+        // delete (temporary file)
+        newFile.delete();
         return ok(empty.render());
     }
 

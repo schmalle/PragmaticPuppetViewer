@@ -53,7 +53,7 @@ public class Application extends Controller
 
 
      //   return ok(index.render("Your new application is ready.", nodes));
-        return ok(overview.render(nodes));
+        return ok(overview.render(nodes, new Integer(nodesList.size()).toString()));
     }
   
 }
