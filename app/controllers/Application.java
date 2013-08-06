@@ -4,6 +4,7 @@ import com.maxmind.geoip.LookupService;
 import models.Node;
 import org.metams.ppr.MysqlHibernate;
 import play.mvc.*;
+import views.html.empty;
 import views.html.overview;
 
 import java.util.List;
@@ -11,19 +12,21 @@ import java.util.List;
 public class Application extends Controller
 {
 
-
-
     public static Result index()
     {
-
 
         String dbfile = "/data/GeoIP.dat";
         LookupService cl = null;
         String countryName = "unknown";
 
-
-
         List nodesList = new MysqlHibernate().getNodes();
+
+        // sanitize checks
+        if (nodesList == null)
+            return ok(empty.render());
+
+        if (nodesList.size() == 0)
+            return ok(empty.render());
 
         Node[] nodes = new Node[nodesList.size()];
 
@@ -43,7 +46,7 @@ public class Application extends Controller
             }
             catch (Exception e)
             {
-
+                return ok(empty.render());
             }
 
 
@@ -54,6 +57,6 @@ public class Application extends Controller
 
      //   return ok(index.render("Your new application is ready.", nodes));
         return ok(overview.render(nodes, new Integer(nodesList.size()).toString()));
-    }
+    }   // index
   
 }
