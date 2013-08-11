@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="hibernate.cfg.xml" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="f71ad29e-9051-42b7-be40-e0219067a64a">
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost:3306/PPR</jdbc-url>
+    <user-name>ppruser</user-name>
+    <user-password>dfdadfdadfd8dfdadfdddf9bdf9adf9adfdadfdddf98df9adf9a</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/Library/Preferences/IntelliJIdea13/jdbc-drivers/mysql-connector-license.txt</url>
+      </library>
+      <library>
+        <url>jar://$USER_HOME$/Library/Preferences/IntelliJIdea13/jdbc-drivers/mysql-connector-java-5.1.26-bin.jar!/</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>
