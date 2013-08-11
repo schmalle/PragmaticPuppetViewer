@@ -188,6 +188,8 @@ public class MysqlHibernate
             returnList.add(nodeElement);
         }
 
+        session.close();
+
         return returnList;
 
     }   // getNodes
