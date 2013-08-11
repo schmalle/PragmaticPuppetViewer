@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.metams.ppr.HibernateNodes" table="Nodes" >
+        <cache usage="read-write"/>
+
+        <id name="id" type="int" column="id" >
+            <generator class="native"/>
+        </id>
+
+        <property name="name">
+            <column name="name" />
+        </property>
+        <property name="firstSeen">
+            <column name="firstSeen"/>
+        </property>
+        <property name="lastSeen">
+            <column name="lastSeen"/>
+        </property>
+
+        <property name="lastIP">
+            <column name="lastIP"/>
+        </property>
+
+
+        <property name="status">
+            <column name="status"/>
+        </property>
+
+        <property name="puppetVersion">
+            <column name="puppetVersion"/>
+        </property>
+
+        <property name="configurationVersion">
+            <column name="configurationVersion"/>
+        </property>
+
+    </class>
+</hibernate-mapping>
+
+
