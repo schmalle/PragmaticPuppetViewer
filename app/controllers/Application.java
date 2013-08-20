@@ -49,8 +49,9 @@ public class Application extends Controller
                 return ok(empty.render());
             }
 
-
-            nodes[runner] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
+            // check
+            if (splits.length > 6)
+                nodes[runner] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
 
         }
 

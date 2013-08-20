@@ -21,3 +21,5 @@ GRANT ALL PRIVILEGES
        ON PPR.*
        TO 'ppruser'@'localhost'
        IDENTIFIED BY 'pprpw100pw200';
+
+
