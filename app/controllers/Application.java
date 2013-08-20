@@ -28,6 +28,7 @@ public class Application extends Controller
         if (nodesList.size() == 0)
             return ok(empty.render());
 
+        int correctFactor = 0;
         Node[] nodes = new Node[nodesList.size()];
 
         for (int runner = 0; runner <= nodes.length - 1; runner++)
@@ -51,13 +52,15 @@ public class Application extends Controller
 
             // check
             if (splits.length > 6)
-                nodes[runner] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
+                nodes[runner-correctFactor] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
+            else
+                correctFactor++;
 
         }
 
 
      //   return ok(index.render("Your new application is ready.", nodes));
-        return ok(overview.render(nodes, new Integer(nodesList.size()).toString()));
+        return ok(overview.render(nodes, new Integer(nodesList.size()-correctFactor).toString()));
     }   // index
   
 }
