@@ -52,15 +52,35 @@ public class Application extends Controller
 
             // check
             if (splits.length > 6)
+            {
                 nodes[runner-correctFactor] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
+            }
             else
+            {
                 correctFactor++;
+                System.out.println("Info: Added correctorFactor for nodes table, this means something went wrong when splitting the input...");
+            }
 
         }
 
 
-     //   return ok(index.render("Your new application is ready.", nodes));
-        return ok(overview.render(nodes, new Integer(nodesList.size()-correctFactor).toString()));
+        if (correctFactor != 0)
+        {
+
+            System.out.println("Info: Correct factor found, copying nodes tables....");
+
+            Node[] nodes2 = new Node[nodesList.size() - correctFactor];
+            for (int runner = 0; runner <= nodes2.length -1 ; runner++)
+            {
+                nodes2[runner] = nodes[runner];
+            }
+
+            return ok(overview.render(nodes2, new Integer(nodes2.length).toString()));
+        }
+        else
+        {
+            return ok(overview.render(nodes, new Integer(nodesList.size()-correctFactor).toString()));
+        }
     }   // index
   
 }
