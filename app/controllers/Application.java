@@ -102,5 +102,5 @@ public class Application extends Controller
             return ok(overview.render(nodes, new Integer(nodesList.size()-correctFactor).toString()));
         }
     }   // index
-  
+
 }
