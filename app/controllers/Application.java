@@ -78,6 +78,13 @@ public class Application extends Controller
             {
                 correctFactor++;
                 System.out.println("Info: Added correctorFactor for nodes table at position " + runner + ", this means something went wrong when splitting the input...");
+                System.out.println("Info: Splitted size is " + splits.length);
+                for (int runner2 = 0; runner2 <= splits.length -1; runner2++)
+                {
+                    System.out.print("Element: " + runner2 + ": " + splits[runner2]);
+                }
+                System.out.println(" ");
+
             }
 
         }
