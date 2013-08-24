@@ -74,6 +74,11 @@ public class Application extends Controller
             {
                 nodes[runner-correctFactor] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],splits[6],countryName);
             }
+            else if (splits.length == 6 && splits[4].equals("failed"))
+            {
+                System.out.println("Info: Production status for honeypot " + splits[0] + "return failed. fixing node table...");
+                nodes[runner-correctFactor] = new Node(splits[0], splits[1],splits[2],splits[3],splits[4],splits[5],"<>",countryName);
+            }
             else
             {
                 correctFactor++;
