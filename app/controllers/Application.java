@@ -12,6 +12,10 @@ import java.util.List;
 public class Application extends Controller
 {
 
+    /**
+     * main function to return user data
+     * @return
+     */
     public static Result index()
     {
 
@@ -31,9 +35,17 @@ public class Application extends Controller
         int correctFactor = 0;
         Node[] nodes = new Node[nodesList.size()];
 
+        System.out.println("Info: Starting with " + nodesList.size() + " nodes...");
+
         for (int runner = 0; runner <= nodes.length - 1; runner++)
         {
             String node = (String)nodesList.get(runner);
+            if (node == null)
+            {
+                System.out.println("Error: At position " + runner + " a node itself is null");
+                return ok(empty.render());
+            }
+
             String[] splits = node.split("::");
 
             // You should only call LookupService once, especially if you use
@@ -43,10 +55,17 @@ public class Application extends Controller
             try
             {
                 cl = new LookupService(dbfile,LookupService.GEOIP_MEMORY_CACHE);
-                countryName = cl.getCountry(splits[3]).getName();
+                if (splits[3] == null)
+                {
+                    System.out.println("Error: At position " + runner + " a country could not be found due to null pointer reference");
+                    countryName = "<unknown>";
+                }
+                else
+                    countryName = cl.getCountry(splits[3]).getName();
             }
             catch (Exception e)
             {
+                System.out.println("Error: At position " + runner + " an exception occured");
                 return ok(empty.render());
             }
 
@@ -58,12 +77,13 @@ public class Application extends Controller
             else
             {
                 correctFactor++;
-                System.out.println("Info: Added correctorFactor for nodes table, this means something went wrong when splitting the input...");
+                System.out.println("Info: Added correctorFactor for nodes table at position " + runner + ", this means something went wrong when splitting the input...");
             }
 
         }
 
 
+        // check if something was corrected, if not copy directly the data
         if (correctFactor != 0)
         {
 

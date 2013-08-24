@@ -235,7 +235,7 @@
       <file leaf-file-name="Application.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="103" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.44179523" vertical-offset="765" max-vertical-offset="1575">
+            <state line="71" column="116" selection-start="2192" selection-end="2192" vertical-scroll-proportion="0.5661157" vertical-offset="549" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -299,12 +299,12 @@
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/app/controllers/ApplicationContent.java" />
         <option value="$PROJECT_DIR$/conf/application.conf" />
+        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
         <option value="$PROJECT_DIR$/app/controllers/ApplicationAbout.java" />
         <option value="$PROJECT_DIR$/conf/routes" />
         <option value="$PROJECT_DIR$/app/views/about.scala.html" />
         <option value="$PROJECT_DIR$/test/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/app/views/overview.scala.html" />
-        <option value="$PROJECT_DIR$/app/controllers/Application.java" />
       </list>
     </option>
   </component>
@@ -692,12 +692,12 @@
       <changelist id="3205db48-0b95-4471-b0fa-dfabd4c7270a" name="Default" comment="" />
       <created>1375614418883</created>
       <updated>1375614418883</updated>
-      <workItem from="1377286109834" duration="1003000" />
+      <workItem from="1377286109834" duration="370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1003000" />
+    <option name="totallyTimeSpent" value="370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -848,7 +848,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="103" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.44179523" vertical-offset="765" max-vertical-offset="1575">
+        <state line="71" column="116" selection-start="2192" selection-end="2192" vertical-scroll-proportion="0.5661157" vertical-offset="549" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>

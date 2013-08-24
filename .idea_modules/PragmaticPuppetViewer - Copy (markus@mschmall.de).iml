@@ -140,7 +140,8 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.seleniumhq.selenium:selenium-support:2.25.0" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.easytesting:fest-assert:1.4" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.easytesting:fest-util:1.1.6" level="project" />
-    <orderEntry type="library" name="ppr" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="antlr-2.7.71" level="project" />
   </component>
 </module>
 
