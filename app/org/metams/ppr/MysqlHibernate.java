@@ -20,6 +20,14 @@ public class MysqlHibernate
     Transaction transaction = null;
 
 
+    /**
+     * simple close routine for the session factory itself.
+     */
+    public void close()
+    {
+        sf.close();
+    }
+
 
     /**
      * Contructor for the MySQL class
@@ -75,6 +83,7 @@ public class MysqlHibernate
         transaction = session.beginTransaction();
         session.save(newNode);
         transaction.commit();
+
         session.close();
 
         return existed;

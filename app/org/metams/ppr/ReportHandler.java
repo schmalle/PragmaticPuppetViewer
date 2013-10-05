@@ -9,7 +9,7 @@ public class ReportHandler
 {
     private int        m_index = 0;
     private int        m_length = 0;
-    private String m_data = null;
+    private String     m_data = null;
 
 
     /**
@@ -109,12 +109,15 @@ public class ReportHandler
 
         MysqlHibernate mysql = new MysqlHibernate();
 
-        // use the date from filename when importin from files, otherwise use the time from the server
+        // use the date from filename when importing from files, otherwise use the time from the server
         if (fileName != null)
             mysql.writeNode(host, null , time, status, puppetVersion, configVersion, ip);
         else
             mysql.writeNode(host, null , new Date().toString(), status, puppetVersion, configVersion, ip);
 
+
+        // clean up factory
+        mysql.close();
 
         return true;
     }
