@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+GET     /heartbeat                  controllers.Heartbeat.index()
+
 PUT     /production/report/:nodeName        controllers.ApplicationContent.index(nodeName: String)
 POST    /production/report/:nodeName        controllers.ApplicationContent.index(nodeName: String)
 

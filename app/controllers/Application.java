@@ -23,7 +23,9 @@ public class Application extends Controller
         LookupService cl = null;
         String countryName = "unknown";
 
-        List nodesList = new MysqlHibernate().getNodes();
+        MysqlHibernate mysql = new MysqlHibernate();
+
+        List nodesList = mysql.getNodes();
 
         // sanitize checks
         if (nodesList == null)
@@ -66,6 +68,7 @@ public class Application extends Controller
             catch (Exception e)
             {
                 System.out.println("Error: At position " + runner + " an exception occured");
+                mysql.close();
                 return ok(empty.render());
             }
 
@@ -107,10 +110,12 @@ public class Application extends Controller
                 nodes2[runner] = nodes[runner];
             }
 
+            mysql.close();
             return ok(overview.render(nodes2, new Integer(nodes2.length).toString()));
         }
         else
         {
+            mysql.close();
             return ok(overview.render(nodes, new Integer(nodesList.size()-correctFactor).toString()));
         }
     }   // index
