@@ -100,7 +100,7 @@ public class ReportHandler
 
 
         String host = getDataValue("  host: ");
-        String time = getDataValue("  time: ");
+        String time = "20".concat(getDataValue("  time: 20"));
         String reportFromat = getDataValue("report_format: ");
         String puppetVersion = getDataValue("puppet_version: ");
         String configVersion = getDataValue("configuration_version: ");
