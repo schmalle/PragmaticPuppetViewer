@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/Country.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/DatabaseInfo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/Location.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/LookupService.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/Region.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/regionName.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/com/maxmind/geoip/timeZone.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/controllers/Application.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/controllers/ApplicationContent.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/models/Node.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/org/metams/ppr/hibernate.cfg.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/empty.scala.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/index.scala.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/main.scala.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/overview.scala.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/conf/application.conf" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/conf/default" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/conf/hibernate.cfg.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/conf/routes" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hibernate.cfg.xml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/antlr-2.7.7.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/commons-io-2.4.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/dom4j-1.6.1.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/hibernate-commons-annotations-4.0.2.Final.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/hibernate-core-4.2.2.Final.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/mysql-connector-java-5.1.26-bin.jar" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/images/favicon.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/images/glyphicons-halflings-white.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/images/glyphicons-halflings.png" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/javascripts/bootstrap.min.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/stylesheets/bootstrap-responsive.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/stylesheets/bootstrap-responsive.min.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/stylesheets/bootstrap.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/stylesheets/bootstrap.min.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/public/stylesheets/main.css" charset="UTF-8" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" defaultCharsetForPropertiesFiles="ISO-8859-1">
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
 
