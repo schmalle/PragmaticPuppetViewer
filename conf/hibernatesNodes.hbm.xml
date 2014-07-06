@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="org.metams.ppr.HibernateNodes" table="Nodes" >
+    <class name="ppr.HibernateNodes" table="Nodes" >
         <cache usage="read-write"/>
 
         <id name="id" type="int" column="id" >
