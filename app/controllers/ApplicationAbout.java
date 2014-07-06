@@ -2,7 +2,7 @@ package controllers;
 
 import com.maxmind.geoip.LookupService;
 import models.Node;
-import org.metams.ppr.MysqlHibernate;
+import ppr.MysqlHibernate;
 import play.mvc.*;
 import views.html.about;
 import views.html.empty;

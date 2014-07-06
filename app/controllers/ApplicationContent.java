@@ -1,6 +1,6 @@
 package controllers;
 
-import org.metams.ppr.ReportHandler;
+import ppr.ReportHandler;
 import play.mvc.*;
 import views.html.empty;
 
@@ -20,7 +20,7 @@ public class ApplicationContent extends Controller
         Http.RequestBody body = request().body();
         Http.RawBuffer textBodyRaw = body.asRaw();
         File newFile = textBodyRaw.asFile();
-        org.metams.ppr.ReportHandler x = new ReportHandler(null, null);
+        ppr.ReportHandler x = new ReportHandler(null, null);
         x.getData(null, newFile.getAbsolutePath(), request().remoteAddress());
 
         // delete (temporary file)
