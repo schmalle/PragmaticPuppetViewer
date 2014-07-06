@@ -45,13 +45,4 @@ public class Node extends Model
         country = countryE;
     }
 
-
-/*
-    firstSeen TEXT,
-    lastSeen TEXT,
-    lastIP TEXT,
-    status TEXT,
-    puppetVersion TEXT,
-    configurationVersion  TEXT);
- */
 }
