@@ -1,12 +1,10 @@
 package controllers;
 
-import models.Node;
-import org.metams.ppr.MysqlHibernate;
-import org.metams.ppr.config.ConfigHandler;
-import org.metams.ppr.twitter.TwitterMessage;
+import ppr.MysqlHibernate;
+import ppr.config.ConfigHandler;
+import ppr.twitter.TwitterMessage;
 import play.mvc.*;
 import views.html.empty;
-import views.html.overview;
 
 import java.util.List;
 
