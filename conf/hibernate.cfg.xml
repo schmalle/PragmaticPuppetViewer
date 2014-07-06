@@ -25,7 +25,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hibernate.bytecode.provider">javassist</property>
 
-        <mapping class="org.metams.ppr.HibernateNodes"/>
+        <mapping class="ppr.HibernateNodes"/>
 
     </session-factory>
 </hibernate-configuration>
