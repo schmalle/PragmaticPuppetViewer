@@ -2,6 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="3334874883">
     <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="f71ad29e-9051-42b7-be40-e0219067a64a">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/PPR</jdbc-url>
       <user-name>ppruser</user-name>
@@ -16,6 +17,7 @@
       </libraries>
     </data-source>
     <data-source source="LOCAL" name="org:metams:ppr:hibernate.cfg.xml" uuid="64743aac-6c34-4159-aa7a-e0c808b43e0a">
+      <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1:3306/Scanit</jdbc-url>
       <user-name>scanner</user-name>
