@@ -5,12 +5,130 @@ import models.Node;
 import ppr.MysqlHibernate;
 import play.mvc.*;
 import views.html.empty;
+import views.html.empty2;
+import views.html.index;
 import views.html.overview;
 
+import java.io.*;
 import java.util.List;
 
 public class Application extends Controller
 {
+
+    private static String m_dump = "/tmp/dump.txt";
+    private static String m_listSh = "/tmp/createlist.ppv.sh";
+
+    /**
+     *
+     * @param fileName
+     */
+    private static void deleteFile(String fileName)
+    {
+        try
+        {
+            File dump = new File(fileName);
+            dump.delete();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+
+    /**
+     *
+     * @return
+     */
+    public static String[] createList()
+    {
+
+        deleteFile(m_dump);
+        deleteFile("/tmp/createdump.ppv.sh");
+        deleteFile(m_listSh);
+
+        int counter = 0;
+        String[] buffer = new String[100];
+        String[] b = new String[counter];
+
+
+        String x = "puppet cert --list >> /tmp/dump.txt";
+
+        try {
+            PrintWriter y = new PrintWriter(m_listSh);
+            y.println(x);
+            y.println("rm " + m_listSh);
+            y.close();
+            Thread.sleep(5000);
+
+
+            BufferedReader br = new BufferedReader(new FileReader(m_dump));
+            String line;
+            while ((line = br.readLine()) != null)
+            {
+                buffer[counter++] = line;
+                // process the line.
+            }
+            br.close();
+
+            b = new String[counter];
+            for (int a = 0; a <= counter - 1; a++)
+            {
+                b[a] = buffer[a];
+            }
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+        return b;
+    }
+
+
+    /**
+     *
+     * @param client
+     */
+    public static void signClientFS(String client)
+    {
+
+        deleteFile(m_dump);
+        deleteFile("/tmp/createdump.ppv.sh");
+        deleteFile(m_listSh);
+
+        String x = "puppet cert sign " + client;
+
+        System.out.println("Executing puppet command: " + x);
+
+        try
+        {
+            PrintWriter y = new PrintWriter("/tmp/createdump.ppv.sh");
+            y.println(x);
+            y.println("rm " + "/tmp/createdump.ppv.sh");
+            y.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public static Result signClient(String name)
+    {
+
+        signClientFS(name);
+        return ok(empty2.render());
+    }
 
     /**
      * main function to return user data
@@ -27,12 +145,27 @@ public class Application extends Controller
 
         List nodesList = mysql.getNodes();
 
+        // get list
+        String[] a = createList();
+        Node[] waiting = new Node[a.length];
+
+        for (int runner = 0; runner <= a.length - 1; runner++) {
+
+            String work = a[runner];
+            int firstQuota = work.indexOf("\"") + 1;
+            int nextQuota = work.indexOf("\"", firstQuota);
+
+            waiting[runner] = new Node(work.substring(firstQuota, nextQuota), null, null, null,
+                    work.substring(nextQuota + 1),
+                    null, null, "(unknown)");
+        }
+
         // sanitize checks
         if (nodesList == null)
-            return ok(empty.render());
+            return ok(empty.render(waiting, "1"));
 
         if (nodesList.size() == 0)
-            return ok(empty.render());
+            return ok(empty.render(waiting, "1"));
 
         int correctFactor = 0;
         Node[] nodes = new Node[nodesList.size()];
@@ -45,7 +178,6 @@ public class Application extends Controller
             if (node == null)
             {
                 System.out.println("Error: At position " + runner + " a node itself is null");
-                return ok(empty.render());
             }
 
             String[] splits = node.split("::");
@@ -69,7 +201,6 @@ public class Application extends Controller
             {
                 System.out.println("Error: At position " + runner + " an exception occured");
                 mysql.close();
-                return ok(empty.render());
             }
 
             // check
