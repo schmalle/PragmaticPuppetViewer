@@ -102,7 +102,7 @@ public class MysqlHibernate
 
         session = sf.openSession();
 
-        String hql = "delete from org.metams.ppr.HibernateNodes Nodes WHERE Nodes.name= :URI";
+        String hql = "delete from ppr.HibernateNodes Nodes WHERE Nodes.name= :URI";
         Query query = session.createQuery(hql);
         query.setString("URI", name);
 
@@ -120,7 +120,7 @@ public class MysqlHibernate
     public String getFirstSeen(String nameNode)
     {
         session = sf.openSession();
-        String hql = "select us.firstSeen from org.metams.ppr.HibernateNodes us where us.name = :uid";
+        String hql = "select us.firstSeen from ppr.HibernateNodes us where us.name = :uid";
 
         Query query = session.createQuery(hql);
         query.setString("uid",nameNode);
@@ -150,7 +150,7 @@ public class MysqlHibernate
 
 
         session = sf.openSession();
-        String hql = "SELECT E.name FROM org.metams.ppr.HibernateNodes E";
+        String hql = "SELECT E.name FROM ppr.HibernateNodes E";
         Query query = session.createQuery(hql);
         List results = query.list();
         session.close();
@@ -182,7 +182,21 @@ public class MysqlHibernate
         String SQL_QUERY = "Select nodes.name as name, nodes.firstSeen as firstSeen, nodes.lastSeen as lastSeen, nodes.lastIP as lastIP, nodes.status as status, nodes.puppetVersion as puppetVersion, nodes.configurationVersion as configurationVersion from Nodes nodes;";
         SQLQuery query = session.createSQLQuery(SQL_QUERY);
 
-        List<Object[]> result = query.list();
+
+
+        List<Object[]> result;
+
+
+        try
+        {
+            result = query.list();
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+
+        // only start this, if we have atleast one result
         for (Object[] objects : result)
         {
 
