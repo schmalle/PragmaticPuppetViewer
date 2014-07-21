@@ -4,10 +4,7 @@ import com.maxmind.geoip.LookupService;
 import models.Node;
 import ppr.MysqlHibernate;
 import play.mvc.*;
-import views.html.empty;
-import views.html.empty2;
-import views.html.index;
-import views.html.overview;
+import views.html.*;
 
 import java.io.*;
 import java.util.List;
@@ -130,6 +127,34 @@ public class Application extends Controller
         return ok(empty2.render());
     }
 
+
+    /**
+     *
+     * @param client
+     * @return
+     */
+    public static Result getClientInfo(String client)
+    {
+
+        String clientData = "name::firstSeen::lastSeen::lastIP::status::puppetversion:configversion";
+
+        MysqlHibernate mysql = new MysqlHibernate();
+
+        List nodesList = mysql.getNodes();
+
+        for (int runner = 0; runner <= nodesList.size() -1; runner++)
+        {
+            String data = (String)nodesList.get(runner);
+            if (data != null && data.toLowerCase().startsWith(client.toLowerCase()+ "::"))
+            {
+                clientData = data;
+            }
+
+        }
+
+        return ok(data.render(clientData));
+    }   // getClientInfo
+
     /**
      * main function to return user data
      * @return
@@ -145,27 +170,35 @@ public class Application extends Controller
 
         List nodesList = mysql.getNodes();
 
-        // get list
+        //
+        // get list and create UI depending on waiting clients
+        //
         String[] a = createList();
-        Node[] waiting = new Node[a.length];
+        if (a != null)
+        {
+            Node[] waiting = new Node[a.length];
 
-        for (int runner = 0; runner <= a.length - 1; runner++) {
+            for (int runner = 0; runner <= a.length - 1; runner++) {
 
-            String work = a[runner];
-            int firstQuota = work.indexOf("\"") + 1;
-            int nextQuota = work.indexOf("\"", firstQuota);
+                String work = a[runner];
+                int firstQuota = work.indexOf("\"") + 1;
+                int nextQuota = work.indexOf("\"", firstQuota);
 
-            waiting[runner] = new Node(work.substring(firstQuota, nextQuota), null, null, null,
-                    work.substring(nextQuota + 1),
-                    null, null, "(unknown)");
+                waiting[runner] = new Node(work.substring(firstQuota, nextQuota), null, null, null,
+                        work.substring(nextQuota + 1),
+                        null, null, "(unknown)");
+            }
+
+            // sanitize checks
+            if (nodesList == null && a.length != 0)
+                return ok(empty.render(waiting, "1"));
+
+            if (nodesList.size() == 0 && a.length != 0)
+                return ok(empty.render(waiting, "1"));
+
+            if (a.length != 0)
+                return ok(empty.render(waiting, "1"));
         }
-
-        // sanitize checks
-        if (nodesList == null)
-            return ok(empty.render(waiting, "1"));
-
-        if (nodesList.size() == 0)
-            return ok(empty.render(waiting, "1"));
 
         int correctFactor = 0;
         Node[] nodes = new Node[nodesList.size()];
