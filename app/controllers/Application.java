@@ -49,11 +49,11 @@ public class Application extends Controller
         String[] b = new String[counter];
 
 
-        String x = "puppet cert --list >> /tmp/dump.txt";
+        String createPuppetDumpString = "puppet cert --list >> /tmp/dump.txt";
 
         try {
             PrintWriter y = new PrintWriter(m_listSh);
-            y.println(x);
+            y.println(createPuppetDumpString);
             y.println("rm " + m_listSh);
             y.close();
             Thread.sleep(5000);
@@ -77,7 +77,7 @@ public class Application extends Controller
         }
         catch (Exception e)
         {
-            e.printStackTrace();
+            System.out.println("Info: PragmaticPuppetViewer found to waiting clients");
         }
 
 
@@ -191,13 +191,13 @@ public class Application extends Controller
 
             // sanitize checks
             if (nodesList == null && a.length != 0)
-                return ok(empty.render(waiting, "1"));
+                return ok(empty.render(waiting, new Integer(a.length).toString()));
 
             if (nodesList.size() == 0 && a.length != 0)
-                return ok(empty.render(waiting, "1"));
+                return ok(empty.render(waiting, new Integer(a.length).toString()));
 
             if (a.length != 0)
-                return ok(empty.render(waiting, "1"));
+                return ok(empty.render(waiting, new Integer(a.length).toString()));
         }
 
         int correctFactor = 0;
