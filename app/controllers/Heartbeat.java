@@ -4,8 +4,8 @@ import ppr.MysqlHibernate;
 import ppr.config.ConfigHandler;
 import ppr.twitter.TwitterMessage;
 import play.mvc.*;
-import views.html.empty;
-import views.html.empty2;
+import views.html.data;
+
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class Heartbeat extends Controller
         }
 
 
-        return ok(empty2.render());
+        return ok(data.render(""));
     }
 
 

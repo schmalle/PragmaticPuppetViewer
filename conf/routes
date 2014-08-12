@@ -19,3 +19,11 @@ GET         /assets/*file                       controllers.Assets.at(path="/pub
 
 GET         /about                              controllers.ApplicationAbout.index()
 
+#
+#
+#
+
+POST        /v1/honeypot_config                 controllers.Application.createConfig()
+
+GET        /v1/honeypot_info                    controllers.Application.getClientInfoSimple()
+

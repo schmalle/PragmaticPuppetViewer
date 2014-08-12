@@ -1,7 +1,9 @@
 package controllers;
 
 import com.maxmind.geoip.LookupService;
-import models.Node;
+import models.HoneypotNodeSetup;
+import play.data.Form;
+import ppr.Node;
 import ppr.MysqlHibernate;
 import play.mvc.*;
 import views.html.*;
@@ -30,6 +32,23 @@ public class Application extends Controller
         {
 
         }
+    }
+
+
+    /**
+     * create honeypot (DTAG specific) configuration files
+     * @return
+     */
+    public static Result createConfig()
+    {
+
+        HoneypotNodeSetup newConfig = Form.form(HoneypotNodeSetup.class).bindFromRequest().get();
+
+        //
+        // ToDo create configuration file
+        //
+
+        return ok(data.render(""));
     }
 
 
@@ -124,9 +143,30 @@ public class Application extends Controller
     {
 
         signClientFS(name);
-        return ok(empty2.render());
+        return ok(data.render(""));
     }
 
+
+    /**
+     * create honeypot (DTAG specific) configuration files
+     * @return
+     */
+    public static Result getClientInfoSimple()
+    {
+
+        HoneypotNodeSetup newConfig = Form.form(HoneypotNodeSetup.class).bindFromRequest().get();
+
+        //
+        // ToDo create configuration file
+        //
+
+        if (newConfig.name != null && newConfig.name.equals("DEMO"))
+        {
+            return ok(data.render("FIRSTSEEN::LASTSEEN::VERSION"));
+        }
+
+        return ok(data.render(""));
+    }
 
     /**
      *
@@ -261,14 +301,13 @@ public class Application extends Controller
 
         }
 
-
         // check if something was corrected, if not copy directly the data
         if (correctFactor != 0)
         {
 
             System.out.println("Info: Correct factor found, copying nodes tables....");
 
-            Node[] nodes2 = new Node[nodesList.size() - correctFactor];
+            ppr.Node[] nodes2 = new Node[nodesList.size() - correctFactor];
             for (int runner = 0; runner <= nodes2.length -1 ; runner++)
             {
                 nodes2[runner] = nodes[runner];

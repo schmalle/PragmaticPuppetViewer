@@ -2,8 +2,8 @@ package controllers;
 
 import ppr.ReportHandler;
 import play.mvc.*;
-import views.html.empty;
-import views.html.empty2;
+import views.html.data;
+
 
 import java.io.File;
 
@@ -26,7 +26,7 @@ public class ApplicationContent extends Controller
 
         // delete (temporary file)
         newFile.delete();
-        return ok(empty2.render());
+        return ok(data.render(""));
     }
 
 }
