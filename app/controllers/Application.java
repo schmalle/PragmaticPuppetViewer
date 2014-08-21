@@ -59,12 +59,6 @@ public class Application extends Controller
             return ok(data.render("Error:: Invalid access token found..."));
         }
 
-
-
-        //
-        // ToDo create configuration file
-        //
-
         String directoryName = config.getEwsDirectoryLocation() + "/" + newConfig.name;
         String errorCode = createDirectory(directoryName);
 
@@ -79,6 +73,7 @@ public class Application extends Controller
             y.println("cd " + directoryName);
             y.println("python " + config.getEwsTemplateLocation() + " " + newConfig.name);
             y.println("echo \""+newConfig.type+"\" > type.conf");
+            y.println("rm /tmp/create_data_ppv.sh");
             y.close();
         }
         catch (Exception e)
