@@ -19,6 +19,7 @@ needs geolocation IP database from Maxmind (http://geolite.maxmind.com)
 needs Play Framework (http://www.playframework.com/)
 needs lsync (https://code.google.com/p/lsyncd/)
 Mysql database / Maria database
+/tmp directory 
 
 Install:
 
@@ -40,5 +41,11 @@ package from Apple and use the following command to create necessary files
 If you have any questions, dont hesitate to contact me at
 
 markus-schmall@t-online.de
+
+or
+
+#flakedev on twitter
+
+
 
 

@@ -6,6 +6,7 @@ import play.data.Form;
 import ppr.Node;
 import ppr.MysqlHibernate;
 import play.mvc.*;
+import ppr.config.ConfigHandler;
 import views.html.*;
 
 import java.io.*;
@@ -42,13 +43,83 @@ public class Application extends Controller
     public static Result createConfig()
     {
 
+        ConfigHandler config = new ConfigHandler("/etc/ppv.conf");
+
         HoneypotNodeSetup newConfig = Form.form(HoneypotNodeSetup.class).bindFromRequest().get();
+
+
+        String tokenFromServer = config.getAccessTokenPPV();
+        if (newConfig.token == null && tokenFromServer != null)
+        {
+            return ok(data.render("Error:: No access token found..."));
+        }
+
+        if (!newConfig.token.equalsIgnoreCase(tokenFromServer))
+        {
+            return ok(data.render("Error:: Invalid access token found..."));
+        }
+
+
 
         //
         // ToDo create configuration file
         //
 
+        String directoryName = config.getEwsDirectoryLocation() + "/" + newConfig.name;
+        String errorCode = createDirectory(directoryName);
+
+        // if not null, some error has happened
+        if (errorCode != null)
+            return ok(data.render(errorCode));
+
+
+        try
+        {
+            PrintWriter y = new PrintWriter("/tmp/create_data_ppv.sh");
+            y.println("cd " + directoryName);
+            y.println("python " + config.getEwsTemplateLocation() + " " + newConfig.name);
+            y.println("echo \""+newConfig.type+"\" > type.conf");
+            y.close();
+        }
+        catch (Exception e)
+        {
+            return ok(data.render("Error: Unable to write relevant data"));
+        }
+
+
         return ok(data.render(""));
+    }
+
+
+    /**
+     * create a directory for a new honeypot config (DTAG specific code)
+     * @param directoryName
+     * @return null on "ok"
+     */
+    private static String createDirectory(String directoryName)
+    {
+        if (directoryName.contains(".."))
+        {
+            return "Error: Directoryname based on new honeypot contains ...";
+        }
+
+        File theDir = new File(directoryName);
+
+        // if the directory does not exist, create it
+        if (!theDir.exists())
+        {
+
+            try
+            {
+                theDir.mkdir();
+            } catch(SecurityException se)
+            {
+                return "Error: Could not create config...";
+            }
+
+        }
+
+        return null;
     }
 
 
@@ -156,9 +227,7 @@ public class Application extends Controller
 
         HoneypotNodeSetup newConfig = Form.form(HoneypotNodeSetup.class).bindFromRequest().get();
 
-        //
         // ToDo create configuration file
-        //
 
         if (newConfig.name != null && newConfig.name.equals("DEMO"))
         {

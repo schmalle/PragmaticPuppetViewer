@@ -1,6 +1,5 @@
 package ppr.config;
 
-        import javax.management.monitor.StringMonitor;
         import java.io.BufferedReader;
         import java.io.File;
         import java.io.FileReader;
@@ -21,7 +20,14 @@ public class ConfigHandler
     private String  m_consumerkeysecret = null;
     private String  m_accessToken = null;
     private String  m_accessTokenSecret = null;
+    private String  m_ewsDirectoryLocation = null;
+    private String  m_ewsPythonCreateHoneypotLocation = null;
+    private String  m_access_token_ppv = null;
 
+
+    public String getEwsDirectoryLocation() { return m_ewsDirectoryLocation; }
+    public String getEwsTemplateLocation() { return m_ewsPythonCreateHoneypotLocation; }
+    public String getAccessTokenPPV() {return m_access_token_ppv;}
 
     public String getAccessToken() {return m_accessToken; }
     public String getAccessTokenSecret() {return m_accessTokenSecret; }
@@ -114,7 +120,7 @@ public class ConfigHandler
     }
 
     /**
-     *
+     * core read loop
      */
     public void read()
     {
@@ -134,6 +140,10 @@ public class ConfigHandler
                 m_consumerkeysecret = catchData(line, "consumerkeysecret", m_consumerkeysecret);
                 m_useTwitter = catchData(line, "usetwitter", m_useTwitter);
 
+                m_ewsDirectoryLocation = catchData(line, "ews_basedirectoryforconfigs", m_ewsDirectoryLocation);
+                m_ewsPythonCreateHoneypotLocation = catchData(line, "ews_pathconfiggenerate", m_ewsPythonCreateHoneypotLocation);
+
+                m_access_token_ppv = catchData(line, "access_token_ppv", m_access_token_ppv);
 
 
             }
