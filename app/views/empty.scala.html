@@ -75,9 +75,11 @@
                         <td>@node.getCountry()</td>
 
                         <td>
-                        <form name="input" action="/signClient/@node.getName()" method="get">
+                            <form name="input" action="/signClient/@node.getName()" method="get">
                             <input type="submit" value="Sign">
-                        </form>
+                            </form>
+                        </td>
+                        <td>
                             <form name="input" action="/deleteClient/@node.getName()" method="get">
                                 <input type="submit" value="Delete">
                             </form>

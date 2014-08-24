@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7a3f46e-0294-40dd-bdce-bba08c5a7958" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vagrant/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Application.java" afterPath="$PROJECT_DIR$/app/controllers/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/empty.scala.html" afterPath="$PROJECT_DIR$/app/views/empty.scala.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/routes" afterPath="$PROJECT_DIR$/conf/routes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PragmaticPuppetViewer.iws" />
@@ -42,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="empty.scala.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="empty.scala.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/empty.scala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.291666" vertical-offset="824" max-vertical-offset="1560">
-              <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.76513314" vertical-offset="899" max-vertical-offset="1590">
+              <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -122,10 +119,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5491991" vertical-offset="0" max-vertical-offset="555">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
               <caret line="16" column="102" selection-start-line="16" selection-start-column="102" selection-end-line="16" selection-end-column="102" />
               <folding />
             </state>
@@ -169,8 +166,8 @@
         <option value="$PROJECT_DIR$/app/ppr/config/ConfigHandler.java" />
         <option value="$PROJECT_DIR$/app/models/HoneypotNodeSetup.java" />
         <option value="$PROJECT_DIR$/app/controllers/Application.java" />
-        <option value="$PROJECT_DIR$/app/views/empty.scala.html" />
         <option value="$PROJECT_DIR$/conf/routes" />
+        <option value="$PROJECT_DIR$/app/views/empty.scala.html" />
       </list>
     </option>
   </component>
@@ -559,7 +556,7 @@
       <workItem from="1408284473875" duration="44000" />
       <workItem from="1408549846806" duration="3394000" />
       <workItem from="1408619937813" duration="5049000" />
-      <workItem from="1408896934908" duration="1433000" />
+      <workItem from="1408896934908" duration="1629000" />
     </task>
     <task id="LOCAL-00001" summary="removed bogus stuff">
       <created>1404659734049</created>
@@ -629,11 +626,15 @@
       <created>1408632641823</created>
       <updated>1408632641823</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added certificate signing request &quot;delete&quot; code&#10;">
+      <created>1408898886211</created>
+      <updated>1408898886212</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48241000" />
+    <option name="totallyTimeSpent" value="48437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="819" extended-state="6" />
@@ -699,7 +700,8 @@
     <MESSAGE value="simplified code; prepared code for generation of DTAG early warning config files" />
     <MESSAGE value="added access tokens&#10;added support for DTAG Early warning system&#10;" />
     <MESSAGE value="added cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="added cleanup code" />
+    <MESSAGE value="added certificate signing request &quot;delete&quot; code&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="added certificate signing request &quot;delete&quot; code&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1126,14 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/data.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="120">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/overview.scala.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="30.333334" vertical-offset="893" max-vertical-offset="1545">
@@ -1152,18 +1146,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/empty.scala.html">
+    <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.291666" vertical-offset="824" max-vertical-offset="1560">
-          <caret line="81" column="66" selection-start-line="81" selection-start-column="66" selection-end-line="81" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="16" column="102" selection-start-line="16" selection-start-column="102" selection-end-line="16" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/routes">
+    <entry file="file://$PROJECT_DIR$/app/views/data.scala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5491991" vertical-offset="0" max-vertical-offset="555">
-          <caret line="16" column="102" selection-start-line="16" selection-start-column="102" selection-end-line="16" selection-end-column="102" />
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="120">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/empty.scala.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76513314" vertical-offset="899" max-vertical-offset="1590">
+          <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
           <folding />
         </state>
       </provider>
