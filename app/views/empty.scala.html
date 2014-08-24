@@ -65,6 +65,7 @@
                     <th>Hash</th>
                     <th>Location</th>
                     <th>Action</th>
+                    <th>Action</th>
                  </tr>
 
                 @for(node <- nodes) {
@@ -77,6 +78,9 @@
                         <form name="input" action="/signClient/@node.getName()" method="get">
                             <input type="submit" value="Sign">
                         </form>
+                            <form name="input" action="/deleteClient/@node.getName()" method="get">
+                                <input type="submit" value="Delete">
+                            </form>
                         </td>
 
                     </tr>

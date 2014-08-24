@@ -37,6 +37,33 @@ public class Application extends Controller
 
 
     /**
+     * delete an outstanding certificate signing request
+     * @param honeypot
+     * @return
+     */
+    public static Result deleteSigningRequest(String honeypot) {
+
+        // work around: sign the request first and then delete it
+        //
+
+        try {
+            PrintWriter y = new PrintWriter("/tmp/delete_honeypot_ppv.sh");
+            y.println("puppet cert sign " + honeypot);
+            y.println("puppet cert clean " + honeypot);
+            y.println("rm /tmp/delete_honeypot_ppv.sh");
+            y.close();
+            Thread.sleep(5000);
+        }
+        catch (Exception e)
+        {
+            return ok(data.render("Error: Unable to write relevant data"));
+
+        }
+
+        return index();
+    }
+
+    /**
      * create honeypot (DTAG specific) configuration files
      * @return
      */
@@ -75,6 +102,7 @@ public class Application extends Controller
             y.println("echo \""+newConfig.type+"\" > type.conf");
             y.println("rm /tmp/create_data_ppv.sh");
             y.close();
+
         }
         catch (Exception e)
         {
@@ -119,7 +147,7 @@ public class Application extends Controller
 
 
     /**
-     *
+     * create a list of waiting signing requests
      * @return
      */
     public static String[] createList()
@@ -134,7 +162,7 @@ public class Application extends Controller
         String[] b = new String[counter];
 
 
-        String createPuppetDumpString = "puppet cert --list >> /tmp/dump.txt";
+        String createPuppetDumpString = "puppet cert --list >> " + m_dump;
 
         try {
             PrintWriter y = new PrintWriter(m_listSh);
@@ -164,7 +192,6 @@ public class Application extends Controller
         {
             System.out.println("Info: PragmaticPuppetViewer found to waiting clients");
         }
-
 
         return b;
     }
