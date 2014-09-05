@@ -8,7 +8,7 @@ echo "Number: $number"
 
 case $number in
 
-4)  echo "All OK";
+2)  echo "All OK";
     ;;
 
 *)  echo "PragmagicPuppetViewer not running"
