@@ -41,10 +41,13 @@ public class Application extends Controller
      * @param honeypot
      * @return
      */
-    public static Result deleteSigningRequest(String honeypot) {
+    public static Result deleteSigningRequest(String honeypot)
+    {
 
         // work around: sign the request first and then delete it
         //
+
+/*
 
         try {
             PrintWriter y = new PrintWriter("/tmp/delete_honeypot_ppv.sh");
@@ -59,7 +62,7 @@ public class Application extends Controller
             return ok(data.render("Error: Unable to write relevant data"));
 
         }
-
+*/
         return index();
     }
 
@@ -78,7 +81,7 @@ public class Application extends Controller
         String tokenFromServer = config.getAccessTokenPPV();
         if (newConfig.token == null && tokenFromServer != null)
         {
-            return ok(data.render("Error:: No access token found..."));
+            return ok(views.html.data.render("Error:: No access token found..."));
         }
 
         if (!newConfig.token.equalsIgnoreCase(tokenFromServer))
@@ -99,6 +102,11 @@ public class Application extends Controller
             PrintWriter y = new PrintWriter("/tmp/create_data_ppv.sh");
             y.println("cd " + directoryName);
             y.println("python " + config.getEwsTemplateLocation() + " " + newConfig.name);
+
+            //
+            // add correct solution for DTAG honeypots
+            //
+
             y.println("echo \""+newConfig.type+"\" > type.conf");
             y.println("rm /tmp/create_data_ppv.sh");
             y.close();

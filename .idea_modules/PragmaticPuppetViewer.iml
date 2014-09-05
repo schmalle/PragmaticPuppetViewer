@@ -14,12 +14,10 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="956c8bb4-0ab2-4d81-8a0d-2ba424f53509" />
-        </datasource-map>
+        <datasource-map />
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../app/ppr/hibernate.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../conf/hibernate.cfg.xml" />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -34,11 +32,15 @@
       <sourceFolder url="file://$MODULE_DIR$/../conf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../test/resources" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../target/native_libraries" />
       <excludeFolder url="file://$MODULE_DIR$/../target/resolution-cache" />
       <excludeFolder url="file://$MODULE_DIR$/../target/scala-2.11/cache" />
       <excludeFolder url="file://$MODULE_DIR$/../target/scala-2.11/classes" />
       <excludeFolder url="file://$MODULE_DIR$/../target/scala-2.11/classes_managed" />
+      <excludeFolder url="file://$MODULE_DIR$/../target/scala-2.11/resource_managed" />
+      <excludeFolder url="file://$MODULE_DIR$/../target/scala-2.11/test-classes" />
       <excludeFolder url="file://$MODULE_DIR$/../target/streams" />
+      <excludeFolder url="file://$MODULE_DIR$/../target/web" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -166,9 +168,22 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.seleniumhq.selenium:selenium-support:2.39.0:test" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.easytesting:fest-assert:1.4:test" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.easytesting:fest-util:1.1.6:test" level="project" />
-    <orderEntry type="library" name="antlr-2.7.7" level="project" />
-    <orderEntry type="library" name="antlr-2.7.71" level="project" />
-    <orderEntry type="library" name="geoip-api-1.2.14-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7.jar" level="project" />
+    <orderEntry type="library" name="commons-io-2.4.jar" level="project" />
+    <orderEntry type="library" name="dom4j-1.6.1.jar" level="project" />
+    <orderEntry type="library" name="geoip-api-1.2.14-SNAPSHOT.jar" level="project" />
+    <orderEntry type="library" name="hibernate-commons-annotations-4.0.2.Final.jar" level="project" />
+    <orderEntry type="library" name="hibernate-core-4.2.2.Final.jar" level="project" />
+    <orderEntry type="library" name="hibernate-jpa-2.0-api-1.0.1.Final.jar" level="project" />
+    <orderEntry type="library" name="javassist-3.15.0-GA.jar" level="project" />
+    <orderEntry type="library" name="jboss-logging-3.1.0.GA.jar" level="project" />
+    <orderEntry type="library" name="jboss-transaction-api_1.1_spec-1.0.1.Final.jar" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.26-bin.jar" level="project" />
+    <orderEntry type="library" name="twitter4j-async-3.0.3.jar" level="project" />
+    <orderEntry type="library" name="twitter4j-core-3.0.3.jar" level="project" />
+    <orderEntry type="library" name="twitter4j-examples-3.0.3.jar" level="project" />
+    <orderEntry type="library" name="twitter4j-media-support-3.0.3.jar" level="project" />
+    <orderEntry type="library" name="twitter4j-stream-3.0.3.jar" level="project" />
   </component>
 </module>
 
