@@ -1,2 +1,2 @@
 #!/bin/bash
-ps -efa | grep PragmaticPuppetViewer | wc -l
+ps -efa | grep /data/PragmaticPuppetViewer/target/universal/stage | wc -l

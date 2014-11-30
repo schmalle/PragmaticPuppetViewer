@@ -1,3 +1,0 @@
-curl --request POST "http://127.0.0.1:9000/v1/honeypot_config?name=myHoneypotName&type=blah"
-
-curl --request GET "http://127.0.0.1:9000/v1/honeypot_info?name=DEMO"

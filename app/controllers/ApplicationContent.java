@@ -2,7 +2,7 @@ package controllers;
 
 import ppr.ReportHandler;
 import play.mvc.*;
-import views.html.data;
+import views.html.*;
 
 
 import java.io.File;

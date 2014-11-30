@@ -79,7 +79,14 @@
                 <td>@node.getLastIP()</td>
                 <td>@node.getPuppetVersion()</td>
                 <td>@node.getConfigurationVersion()</td>
-                <td>@node.getStatus()</td>
+                <td>
+
+                @if(node.getStatus()=="ok") {
+                    <img src="@routes.Assets.at("/images/ok.png")" width="24" height="24"/>
+                }   else {
+                    @node.getStatus()
+                    }
+                </td>
                 <td>@node.getCountry()</td>
 
             </tr>

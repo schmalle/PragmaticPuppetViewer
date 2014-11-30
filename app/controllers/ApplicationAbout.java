@@ -1,7 +1,8 @@
 package controllers;
 
 import play.mvc.*;
-import views.html.about;
+import views.html.*;
+
 
 public class ApplicationAbout extends Controller
 {

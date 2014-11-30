@@ -28,4 +28,3 @@ GET         /about                              controllers.ApplicationAbout.ind
 POST        /v1/honeypot_config                 controllers.Application.createConfig()
 
 GET        /v1/honeypot_info                    controllers.Application.getClientInfoSimple()
-

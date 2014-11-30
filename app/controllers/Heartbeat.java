@@ -4,8 +4,7 @@ import ppr.MysqlHibernate;
 import ppr.config.ConfigHandler;
 import ppr.twitter.TwitterMessage;
 import play.mvc.*;
-import views.html.data;
-
+import views.html.*;
 
 import java.util.List;
 

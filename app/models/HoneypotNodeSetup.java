@@ -14,6 +14,7 @@ public class HoneypotNodeSetup extends Model
 
     @Id
     public String   name;
+    public String   client;
     public String   date;
     public String   type;
     public String   token;
@@ -25,8 +26,9 @@ public class HoneypotNodeSetup extends Model
      * @param name
      * @param type
      * @param token
+     * @paran client
      */
-    public HoneypotNodeSetup(String date, String name, String type, String token)
+    public HoneypotNodeSetup(String date, String name, String type, String token, String client)
     {
         try
         {
@@ -35,6 +37,7 @@ public class HoneypotNodeSetup extends Model
             this.name = name;
             this.type = type;
             this.token = token;
+            this.client = client;
             updateDate();
 
         }
