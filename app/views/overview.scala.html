@@ -81,11 +81,16 @@
                 <td>@node.getConfigurationVersion()</td>
                 <td>
 
-                @if(node.getStatus()=="ok") {
-                    <img src="@routes.Assets.at("/images/ok.png")" width="24" height="24"/>
-                }   else {
-                    @node.getStatus()
-                    }
+                    <div align='center'>
+
+                    @node.getStatus() match {
+                        case "ok" => { <img src="@routes.Assets.at("/images/ok.png")" width="24" height="24" align="middle"/> }
+                        case "failed" => { <img src="@routes.Assets.at("/images/Failed.jpg")" width="24" height="24" align="middle"/> }
+                        case "changed" => { <img src="@routes.Assets.at("/images/change.jpg")" width="24" height="24" align="middle"/> }
+                        }
+
+                        </div>
+
                 </td>
                 <td>@node.getCountry()</td>
 
@@ -96,7 +101,15 @@
 
     </table>
 
-</div> <!-- /container -->
+</div>
+
+        <!--
+
+        success
+        changed
+        failed
+
+        /container -->
 
 
 
